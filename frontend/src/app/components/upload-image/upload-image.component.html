@@ -1,0 +1,7 @@
+<div class="container">
+  <form #f="ngForm" (ngSubmit)="onSubmitform(f)">
+    <input type="file" name="myFile" (change)="fileEvent($event)" />
+    <button class="btn btn-dark">Upload Image</button>&nbsp;
+    <button routerLink="/dashboard" class="btn btn-dark">Back</button>
+  </form>
+</div>

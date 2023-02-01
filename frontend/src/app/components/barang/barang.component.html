@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>
+    <a routerLink="/dashboard" class="text-decoration-none text-dark"
+      >Daftar Produk</a
+    >
+  </h1>
+  <div class="d-flex flex-row-reverse">
+    <button class="btn btn-dark btn-lg" routerLink="/add">Tambah Barang</button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <th>Nama Barang</th>
+      <th>Deskripsi</th>
+      <th>Jenis Barang</th>
+      <th>Stock Barang</th>
+      <th>Harga Beli</th>
+      <th>Harga Jual</th>
+      <th>Gambar Barang</th>
+    </thead>
+    <tbody *ngIf="barangs.length">
+      <tr *ngFor="let barang of barangs">
+        <td>{{ barang.nama_barang }}</td>
+        <td>{{ barang.deskripsi }}</td>
+        <td>{{ barang.jenis_barang }}</td>
+        <td>{{ barang.stock_barang }}</td>
+        <td>{{ barang.harga_beli }}</td>
+        <td>{{ barang.harga_jual }}</td>
+        <td>{{ barang.gambar_barang }}</td>
+        <td>
+          <button
+            class="btn btn-outline-dark"
+            routerLink="/edit/{{ barang.id }}"
+          >
+            Edit</button
+          >&nbsp;<button class="btn btn-outline-dark" routerLink="/upload">
+            Add Image</button
+          >&nbsp;<button
+            class="btn btn-outline-dark"
+            (click)="deleteBarang(barang.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

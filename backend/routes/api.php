@@ -31,4 +31,5 @@ Route::group([
     Route::post('/barangs', [BarangController::class, 'store']);
     Route::put('/barang/{id}', [BarangController::class, 'update']);
     Route::delete('/barang/{id}', [BarangController::class, 'destroy']);
+    Route::post('/upload', [BarangController::class, 'upload']);
 });

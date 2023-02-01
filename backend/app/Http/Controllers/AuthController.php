@@ -50,6 +50,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|min:6',
             'email' => 'required|string|email|max:255|unique:users',
+            'role' => 'required',
             'password' => [
                 'required', 'string', 'confirmed', Password::min(10) //minimum 10 characters
                     ->mixedCase() //uppercase and lowercase
@@ -62,6 +63,7 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => Hash::make($request->password),
         ]);
 

@@ -27,6 +27,23 @@
             </div>
           </div>
 
+          <!-- Role input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form1Example13">Role</label>
+            <input
+              type="text"
+              id="form1Example13"
+              class="form-control form-control-lg"
+              placeholder="Role"
+              [(ngModel)]="form.role"
+              name="role"
+              required
+            />
+            <div class="alert alert-danger" [hidden]="!errorRole">
+              {{ errorRole }}
+            </div>
+          </div>
+
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="form1Example13">Email address</label>

@@ -8,6 +8,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { BeforeLoginService } from './Services/before-login.service';
 import { AfterLoginService } from './Services/after-login.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BarangComponent } from './components/barang/barang.component';
+import { TambahBarangComponent } from './components/tambah-barang/tambah-barang.component';
+import { EditBarangComponent } from './components/edit-barang/edit-barang.component';
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
 
 const routes: Routes = [
   {
@@ -39,6 +43,30 @@ const routes: Routes = [
     path: 'response-password-reset',
     component: ResponseResetComponent,
     canActivate: [BeforeLoginService],
+  },
+
+  {
+    path: 'dashboard',
+    component: BarangComponent,
+    canActivate: [AfterLoginService],
+  },
+
+  {
+    path: 'add',
+    component: TambahBarangComponent,
+    canActivate: [AfterLoginService],
+  },
+
+  {
+    path: 'edit/:barangId',
+    component: EditBarangComponent,
+    canActivate: [AfterLoginService],
+  },
+
+  {
+    path: 'upload',
+    component: UploadImageComponent,
+    canActivate: [AfterLoginService],
   },
 ];
 

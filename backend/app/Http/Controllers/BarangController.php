@@ -14,9 +14,9 @@ class BarangController extends Controller
      */
     public function index()
     {
-        return Barang::all();
+        // return Barang::all();
+        $Barangs = Barang::all();
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -25,7 +25,18 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+
         return Barang::create($request->all());
+        // $request->validate([
+        //     'nama_barang' => 'required',
+        //     'deskripsi' => 'required',
+        //     'jenis_barang' => 'required',
+        //     'stock_barang' => 'required',
+        //     'harga_jual' => 'required',
+        //     'harga_beli' => 'required',
+        //     'gambar_barang' => 'required|mimes:jpg,png,jpeg,gif,svg',
+        // ]);
+
     }
 
     /**
@@ -34,6 +45,25 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //File Upload Function
+    public function upload(Request $request)
+    {
+
+        //check file
+        if ($request->hasFile('gambar_barang')) {
+            $file      = $request->file('gambar_barang');
+            $filename  = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $Barangs   = date('His') . '-' . $filename;
+            //move image to public/img folder
+            $file->move(public_path('img'), $Barangs);
+            return response()->json(["message" => "Image Uploaded Succesfully"]);
+        } else {
+            return response()->json(["message" => "Select image first."]);
+        }
+    }
+
     public function show($id)
     {
         return Barang::find($id);

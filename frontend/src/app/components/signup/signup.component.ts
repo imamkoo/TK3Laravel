@@ -14,11 +14,13 @@ export class SignupComponent implements OnInit {
     email: null,
     password: null,
     password_confirmation: null,
+    role: null,
   };
 
   public errorName = null;
   public errorEmail = null;
   public errorPassword = null;
+  public errorRole = null;
 
   constructor(
     private Service: ServiceService,
@@ -42,6 +44,7 @@ export class SignupComponent implements OnInit {
     this.errorName = error.error.errors.name;
     this.errorEmail = error.error.errors.email;
     this.errorPassword = error.error.errors.password;
+    this.errorRole = error.error.errors.role;
   }
 
   ngOnInit() {}

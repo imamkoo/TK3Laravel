@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,10 @@ import {
 
 import { environment } from '../environments/environment';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BarangComponent } from './components/barang/barang.component';
+import { TambahBarangComponent } from './components/tambah-barang/tambah-barang.component';
+import { EditBarangComponent } from './components/edit-barang/edit-barang.component';
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,11 +40,16 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     RequestResetComponent,
     ResponseResetComponent,
     DashboardComponent,
+    BarangComponent,
+    TambahBarangComponent,
+    EditBarangComponent,
+    UploadImageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     SnotifyModule,
     RecaptchaModule,
