@@ -1,0 +1,109 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img
+          src="../../../assets/girl-doing-shopping-with-cart.svg"
+          class="img-fluid"
+          alt="signup"
+        />
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <div class="d-flex flex-row-reverse">
+          <button class="btn btn-dark" routerLink="/dashboard">Back</button>
+        </div>
+        <div class="form-outline mb-4">
+          <label class="form-label">Nama</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Nama"
+            [(ngModel)]="staf.nama"
+            #nama
+          />
+        </div>
+        <div class="form-outline mb-4">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control form-control-lg"
+            placeholder="Email"
+            #email
+            rows="3"
+            [(ngModel)]="staf.email"
+          />
+        </div>
+        <div class="form-outline mb-4">
+          <label class="form-label">TTL</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="TTL"
+            #TTL
+            [(ngModel)]="staf.TTL"
+          />
+        </div>
+        <div class="form-outline mb-4">
+          <label class="form-label">Jenis Kelamin</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Jenis Kelamin"
+            #jenisKelamin
+            [(ngModel)]="staf.jenis_kelamin"
+          />
+        </div>
+        <div class="form-outline mb-4">
+          <label class="form-label">Alamat</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Alamat"
+            #alamat
+            [(ngModel)]="staf.alamat"
+          />
+        </div>
+        <div class="form-outline mb-4">
+          <label class="form-label">KTP</label>
+          <input
+            type="file"
+            class="form-control form-control-lg"
+            placeholder="KTP"
+            #KTP
+            [(ngModel)]="staf.KTP"
+          />
+        </div>
+        <div class="form-outline mb-4">
+          <label class="form-label">Role</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Role"
+            #role
+            [(ngModel)]="staf.role"
+          />
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <button
+            (click)="
+              update(
+                nama.value,
+                email.value,
+                TTL.value,
+                jenisKelamin.value,
+                alamat.value,
+                KTP.valueAsNumber,
+                role.value
+              )
+            "
+            type="button"
+            class="btn btn-dark btn-lg btn-block"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

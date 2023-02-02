@@ -12,6 +12,10 @@ import { BarangComponent } from './components/barang/barang.component';
 import { TambahBarangComponent } from './components/tambah-barang/tambah-barang.component';
 import { EditBarangComponent } from './components/edit-barang/edit-barang.component';
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
+import { UserComponent } from './components/user/user.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { EditStaffComponent } from './components/edit-staff/edit-staff.component';
+import { StaffComponent } from './components/staff/staff.component';
 
 const routes: Routes = [
   {
@@ -29,6 +33,19 @@ const routes: Routes = [
     component: SignupComponent,
     canActivate: [BeforeLoginService],
   },
+
+  {
+    path: 'signup/pembeli',
+    component: SignupComponent,
+    canActivate: [AfterLoginService],
+  },
+
+  {
+    path: 'signup/staf',
+    component: SignupComponent,
+    canActivate: [AfterLoginService],
+  },
+
   {
     path: 'profile',
     component: ProfileComponent,
@@ -62,10 +79,31 @@ const routes: Routes = [
     component: EditBarangComponent,
     canActivate: [AfterLoginService],
   },
+  {
+    path: 'edit/pembeli/:pembeliId',
+    component: EditUserComponent,
+    canActivate: [AfterLoginService],
+  },
+  {
+    path: 'edit/staff/:staffId',
+    component: EditStaffComponent,
+    canActivate: [AfterLoginService],
+  },
 
   {
     path: 'upload',
     component: UploadImageComponent,
+    canActivate: [AfterLoginService],
+  },
+
+  {
+    path: 'user',
+    component: UserComponent,
+    canActivate: [AfterLoginService],
+  },
+  {
+    path: 'staf',
+    component: StaffComponent,
     canActivate: [AfterLoginService],
   },
 ];

@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>
+    <a routerLink="/dashboard" class="text-decoration-none text-dark"
+      >Daftar Pembeli</a
+    >
+  </h1>
+  <div class="d-flex flex-row-reverse">
+    <button class="btn btn-dark btn-lg" routerLink="/add">Tambah Barang</button
+    >&nbsp;
+    <button class="btn btn-dark btn-lg" routerLink="/user">
+      Manage User Pembeli
+    </button>
+    &nbsp;
+    <button class="btn btn-dark btn-lg" routerLink="/user">
+      Manage User Staff
+    </button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <th>Nama</th>
+      <th>Email</th>
+      <th>TTL</th>
+      <th>Jenis Kelamin</th>
+      <th>Alamat</th>
+      <th>KTP</th>
+      <th>role</th>
+    </thead>
+    <tbody *ngIf="stafs.length">
+      <tr *ngFor="let staf of stafs">
+        <td>{{ staf.nama }}</td>
+        <td>{{ staf.email }}</td>
+        <td>{{ staf.TTL }}</td>
+        <td>{{ staf.jenis_kelamin }}</td>
+        <td>{{ staf.alamat }}</td>
+        <td>{{ staf.KTP }}</td>
+        <td>{{ staf.role }}</td>
+        <td>
+          <button
+            class="btn btn-outline-dark"
+            routerLink="/edit/pembeli/{{ staf.id }}"
+          >
+            Edit
+          </button>
+          &nbsp;
+          <button class="btn btn-outline-dark" (click)="deleteStaf(staf.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-dark btn-lg" routerLink="/signup/staf">
+    Tambah Staf
+  </button>
+</div>
